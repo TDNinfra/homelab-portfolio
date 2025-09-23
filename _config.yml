@@ -11,3 +11,4 @@ permalink: pretty
 markdown: kramdown
 url: https://tdninfra.github.io
 baseurl: /homelab-portfolio
+show_downloads: false
