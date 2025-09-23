@@ -1,58 +1,31 @@
 ---
-layout: page
-title: IT & Homelab Projects
+title: IT & Homelab Portfolio
+description: Real-world DevOps/sysadmin projects
+layout: default
 ---
 
-<div class="hero">
-  <h1>IT & Homelab Projects</h1>
-  <p>Portfolio of practical projects covering Docker, Cloudflare Zero Trust, RTMP streaming, Plex automation, Immich, Home Assistant, and Backblaze B2 off-site backups.</p>
-</div>
+# IT & Homelab Portfolio
 
-## Featured Projects
+Hi! I’m showcasing hands-on homelab & DevOps work: Dockerized services, reverse proxying, secure access, backups, and media workflow automation.
 
-<div class="grid">
-  {% include project-card.md
-    title="Docker Stack Overview"
-    href="docker-stack/"
-    summary="Multi-service stack managed with Portainer and a simple dashboard."
-    tags="Docker,Portainer,Operations" %}
-  {% include project-card.md
-    title="Cloudflare + RTMP Secure Streaming"
-    href="cloudflare-rtmp/"
-    summary="Private livestream using nginx-rtmp, HLS, and Cloudflare Zero Trust."
-    tags="RTMP,HLS,Cloudflare,Security" %}
-  {% include project-card.md
-    title="Immich (Self-Hosted Photos)"
-    href="immich-setup/"
-    summary="AI-assisted photo library using Immich with Postgres and Redis."
-    tags="Immich,AI,Postgres,Redis" %}
-  {% include project-card.md
-    title="Backblaze B2 NAS Backup"
-    href="backblaze-nas-backup/"
-    summary="Disaster recovery via NAS backups to Backblaze B2 with versioning."
-    tags="Backups,B2,DR" %}
-  {% include project-card.md
-    title="Home Assistant + Smart Devices"
-    href="home-assistant/"
-    summary="Aqara and camera integrations with a wall-mounted dashboard."
-    tags="IoT,Home Assistant,Automation" %}
-  {% include project-card.md
-    title="Plex Media & Automation Suite"
-    href="plex-automation/"
-    summary="Radarr/Prowlarr/Sabnzbd/Unpackerr/Bazarr/Kometa pipeline."
-    tags="Plex,Automation,Usenet" %}
-  {% include project-card.md
-    title="Vaultwarden (Password Manager)"
-    href="vaultwarden/"
-    summary="Self-hosted password manager behind a Zero Trust tunnel."
-    tags="Security,Passwords,Zero Trust" %}
-</div>
+- **GitHub:** [TDNinfra](https://github.com/TDNinfra)
+- **This site’s repo:** [/homelab-portfolio](https://github.com/TDNinfra/homelab-portfolio)
+
+## Highlights
+- Containerized media stack (*Radarr, Sonarr, Prowlarr, SABnzbd/qBittorrent, Plex, Tautulli, Bazarr, Overseerr*)
+- Zero-trust access via **Cloudflare Tunnel**
+- Reverse proxy & TLS with **Nginx Proxy Manager**
+- **Vaultwarden** password manager
+- **Immich** (self-hosted photos) with Postgres/Redis
+- Scheduled updates: **Watchtower**, post-download **Unpackerr**
+- Config drift control: **Recyclarr**
+- Homelab **Homepage** dashboard
 
 ---
 
-### Notes on Privacy
-This site omits personally identifying information (names, addresses, domains, IPs). Config snippets and screenshots should be redacted before publishing.
-### Links
-- **Repo:** https://github.com/TDNinfra/homelab-portfolio
-- **Site:** https://tdninfra.github.io/homelab-portfolio/
+## Projects
+See detailed configs, `.env.example` files, and READMEs for each service on the **Projects** page.
 
+👉 **[Browse all services →](/homelab-portfolio/services/)**
+
+> All examples are sanitized: no personal names, IPs, tokens, or secrets.
