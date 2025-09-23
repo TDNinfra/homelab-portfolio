@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}     # Use token mode (recommended)
+    # OR use credentials file + named tunnel (see README)
+    volumes:
+      - ${DOCKERCONFDIR}/cloudflared:/etc/cloudflared
+    logging:
+      driver: json-file
+      options:
+        max-file: ${DOCKERLOGGING_MAXFILE}
+        max-size: ${DOCKERLOGGING_MAXSIZE}

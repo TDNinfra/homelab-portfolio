@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  unpackerr:
+    image: ghcr.io/hotio/unpackerr:latest
+    container_name: unpackerr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - UMASK=002
+    volumes:
+      - ${DOCKERCONFDIR}/unpackerr:/config
+      - ${DOCKERSTORAGEDIR}:/data
+    network_mode: bridge
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

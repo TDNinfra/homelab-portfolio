@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  plex-meta-manager:
+    image: meisnate12/plex-meta-manager:latest
+    container_name: plex-meta-manager
+    hostname: pmm
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - PMM_TIME=${PMM_TIME}
+    volumes:
+      - ${DOCKERCONFDIR}/plex-meta-manager:/config
+    restart: unless-stopped

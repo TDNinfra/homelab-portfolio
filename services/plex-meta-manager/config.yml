@@ -1,0 +1,206 @@
+# Plex Meta Manager Configuration (SANITIZED)
+libraries:
+  Scheduled:
+    library_name: Movies
+    report_path: config/missing/Scheduled_report.yml
+    template_variables:
+      use_separator: false
+    collection_files:
+    - file: /config/collection/scheduled.yml
+  Movies:
+    template_vairables:
+      collection_mode: hide_items
+    report_path: /config/missing/Movies_report.yml
+    collection_files:
+    - file: config/collection/Movies.yml
+    - default: collectionless
+    - default: imdb
+    - default: universe
+      template_variables:
+        radarr_add_missing: true
+        use_separator: false
+        append_data:
+          mcu2: Marvel Chronological Order
+        imdb_list_mcu2: https://www.imdb.com/list/ls029032797/
+        url_poster_mcu2: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/universe/mcu.jpg
+        exclude:
+        - avp
+        - arrow
+        - dca
+        - dcu
+        - fast
+        - marvel
+        - mcu
+        - trek
+        - star
+        - askew
+        visible_home_mcu2: true
+    remove_overlays: false
+    overlay_files:
+    - default: resolution
+      template_variables:
+        use_separator: false
+        style: standards
+        exclude:
+        - 720p
+        - 1080p
+        - 420p
+  TV Shows:
+    report_path: config/missing/TVShows_report.yml
+    collection_files:
+    - file: config/TVShows
+    - default: basic
+    - default: imdb
+      template_variables:
+        name_popular: IMDb Popular TV
+        visible_home_top: true
+        visible_home_popular: true
+    - default: network
+      template_variables:
+        use_separator: false
+        sync_mode: append
+        sep_style: stb
+        include:
+        - A&E
+        - ABC
+        - AMC
+        - Animal Planet
+        - CBS
+        - Comedy Central
+        - FOX
+        - NBC
+        - Showtime
+        - Starz
+        - USA
+        addons:
+          Paramount+:
+          - Paramount Network
+          Peacock:
+          - NBC
+          HBO Max:
+          - HBO
+        sort_by: title.asc
+    - default: streaming
+      template_variables:
+        use_separator: false
+        sep_style: stb
+        sync_mode: append
+        name_format: <<key_name>>
+        include:
+        - appletv
+        - discovery
+        - disney
+        - max
+        - hulu
+        - netflix
+        - paramount
+        - peacock
+        - amazon
+        sort_by: title.asc
+    overlay_files:
+    - remove_overlays: false
+    - url: https://raw.githubusercontent.com/TheChrisK/PMM/main/overlays/Status.yml
+    - default: network
+      template_variables:
+        horizontal_align: left
+        horizontal_offset: 0
+        vertical_offset: 0
+        vertical_align: top
+        back_width: 1000
+        back_height: 1500
+        url: https://raw.githubusercontent.com/TheChrisK/PMM/main/overlays/network-top-left/<<key>>.png
+        back_color: 00
+settings:
+  cache: true
+  cache_expiration: 60
+  asset_directory: /config/assets
+  asset_folders: true
+  assets_for_all: false
+  sync_mode: append
+  show_unmanaged: true
+  show_filtered: false
+  show_missing: true
+  save_missing: true
+  run_again_delay: 2
+  missing_only_released: false
+  create_asset_folders: true
+  collection_minimum: 1
+  delete_below_minimum: false
+  tvdb_language: default
+  show_missing_assets: true
+  run_order:
+  - operations
+  - metadata
+  - collections
+  - overlays
+  asset_depth: 0
+  prioritize_assets: false
+  dimensional_asset_rename: false
+  download_url_assets: false
+  show_missing_season_assets: false
+  show_missing_episode_assets: false
+  show_asset_not_needed: true
+  default_collection_order:
+  item_refresh_delay: 0
+  delete_not_scheduled: false
+  only_filter_missing: false
+  show_unconfigured: true
+  show_options: false
+  ignore_ids:
+  ignore_imdb_ids:
+  playlist_sync_to_users: all
+  playlist_exclude_users:
+  playlist_report: true
+  verify_ssl: true
+  custom_repo:
+  overlay_artwork_filetype: jpg
+  overlay_artwork_quality:
+  show_unfiltered: false
+plex:
+  url: http://192.168.50.230:32400
+  token: <PLEX_TOKEN>
+tmdb:
+  apikey: <TMDB_APIKEY>
+  language: en
+  cache_expiration: 60
+tautulli:
+  url: http://192.168.50.230:8181
+  apikey: <TAUTULLI_APIKEY>
+radarr:
+  url: http://192.168.50.230:7878
+  token: <RADARR_TOKEN>
+  version: v3
+  root_folder_path: /data/media/movies
+  quality_profile: SQP-1 (1080p)
+  radarr_path: /data/media/movies
+  plex_path: /data/media/movies
+sonarr:
+  url: http://192.168.50.230:8989
+  token: <SONARR_TOKEN>
+  version: v3
+  root_folder_path: /data/media/tv
+  quality_profile: WEB-1080p
+  language_profile: English
+  series_type: standard
+  season_folder: true
+  sonarr_path: /data/media/tv
+  plex_path: /data/media/tv
+notifiarr:
+  apikey: <NOTIFIARR_APIKEY>
+trakt:
+  client_id: <TRAKT_CLIENT_ID>
+  client_secret: <TRAKT_CLIENT_SECRET>
+  authorization:
+    access_token: <TRAKT_ACCESS_TOKEN>
+    refresh_token: <TRAKT_REFRESH_TOKEN>
+mdblist:
+  apikey: <MDBLIST_APIKEY>
+  cache_expiration: 60
+webhooks:
+  error: notifiarr
+  version: notifiarr
+  run_start: notifiarr
+  run_end: notifiarr
+  changes: notifiarr
+  collection_changes: notifiarr
+  delete:

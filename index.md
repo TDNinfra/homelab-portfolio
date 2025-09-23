@@ -4,6 +4,8 @@ description: Real-world DevOps/sysadmin projects
 layout: default
 ---
 
+{% include header.html %}
+
 # IT & Homelab Portfolio
 
 Hi! I’m showcasing hands-on homelab & DevOps work: Dockerized services, reverse proxying, secure access, backups, and media workflow automation.
@@ -26,6 +28,8 @@ Hi! I’m showcasing hands-on homelab & DevOps work: Dockerized services, revers
 ## Projects
 See detailed configs, `.env.example` files, and READMEs for each service on the **Projects** page.
 
-👉 **[Browse all services →](/homelab-portfolio/services/)**
+👉 **[Browse all services →]({{ site.baseurl }}/services/)**
 
 > All examples are sanitized: no personal names, IPs, tokens, or secrets.
+
+{% include footer.html %}

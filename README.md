@@ -1,19 +1,33 @@
-# IT & Homelab Projects Portfolio
+# IT & Homelab Portfolio (TDNinfra)
 
-This repository documents real-world projects implemented in a personal homelab.  
-It intentionally avoids personal identifiers (names, exact locations, domains, IPs, API keys).
+This repository powers my public portfolio site (GitHub Pages) and showcases practical DevOps/sysadmin work:
+Dockerized services, secure access with Cloudflare Zero Trust, reverse proxies with TLS, media automation, and self-hosted apps.
 
-## Projects
-- [Docker Stack Overview](./docker-stack/README.md)
-- [Cloudflare + RTMP Secure Streaming](./cloudflare-rtmp/README.md)
-- [Immich (Self-Hosted Photos)](./immich-setup/README.md)
-- [Backblaze B2 NAS Backup](./backblaze-nas-backup/README.md)
-- [Home Assistant + Smart Devices](./home-assistant/README.md)
-- [Plex Media & Automation Suite](./plex-automation/README.md)
-- [Vaultwarden (Password Manager)](./vaultwarden/README.md)
+- **Live site:** https://tdninfra.github.io/homelab-portfolio/
+- **Highlights:** Docker, Compose, Reverse Proxy, Cloudflare, Backups (B2), Plex/Arr stack, Immich, Vaultwarden
 
-## Privacy & Security
-- Redact hostnames, domains, IP addresses, tokens, and keys.
-- Remove EXIF from screenshots; blur sensitive UI details.
-- Avoid sharing logs with timestamps/identifiers.
-- Rotate any credentials used during testing.
+## Structure
+```
+/index.md                   # homepage (Jekyll)
+/services/                  # all projects
+  <service>/
+    README.md               # what/why/integration/security/usage
+    docker-compose.yml
+    .env.example
+    [extra configs]
+_includes/
+  header.html               # top nav
+  footer.html               # footer (repo link + last updated)
+```
+
+> All configs are **sanitized**; no personal names, domains, IPs, or secrets are published.
+
+## Local preview (optional)
+If you want to preview the site locally with Jekyll:
+```bash
+gem install bundler jekyll
+bundle init
+bundle add jekyll
+bundle exec jekyll serve
+```
+(Or just push to GitHub and let Pages build it.)
