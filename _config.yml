@@ -1,12 +1,11 @@
 title: IT & Homelab Portfolio
-description: Real-world DevOps/sysadmin projects: Docker, Cloudflare Zero Trust, RTMP, Plex automation, Immich, Home Assistant, and Backblaze B2 backups.
-theme: minima
-github_username: your-github-username   # <- replace with your GitHub username
-permalink: pretty
+description: Real-world DevOps/sysadmin projects
+remote_theme: pages-themes/cayman@v0.2.0
 
-minima:
-  social_links:
-    - platform: github
-      user_url: https://github.com/your-github-username
+plugins:
+  - jekyll-remote-theme
+
+github_username: TDNinfra
+permalink: pretty
 
 markdown: kramdown
