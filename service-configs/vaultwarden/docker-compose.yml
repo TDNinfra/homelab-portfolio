@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    user: ${PUID}:${PGID}   # host user:group, adjust as needed
+    environment:
+      - ROCKET_ENV=staging
+      - ROCKET_PORT=8080
+      - ROCKET_WORKERS=10
+      - SIGNUPS_ALLOWED=false
+      - ADMIN_TOKEN=${ADMIN_TOKEN}    # set in .env
+      - LOG_FILE=/data/log/my.log
+    volumes:
+      - ${DOCKERCONFDIR}/vaultwarden:/data
+    ports:
+      - "${HTTP_PORT}:8080"
+    network_mode: bridge
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
