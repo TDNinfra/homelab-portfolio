@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+  qbittorrent:
+    image: hotio/qbittorrent:legacy
+    container_name: qbittorrent
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+#   devices:
+#     - /dev/net/tun:/dev/net/tun   # uncomment if using VPN
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv6.conf.all.disable_ipv6=1
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    logging:
+      driver: json-file
+      options:
+        max-file: ${DOCKERLOGGING_MAXFILE}
+        max-size: ${DOCKERLOGGING_MAXSIZE}
+    labels:
+      - org.hotio.pullio.update=${PULLIO_UPDATE}
+      - org.hotio.pullio.notify=${PULLIO_NOTIFY}
+      - org.hotio.pullio.discord.webhook=${PULLIO_DISCORD_WEBHOOK}
+    ports:
+      - "${QBITTORRENT_WEBUI_PORT}:${QBITTORRENT_WEBUI_PORT}"
+      - "${QBITTORRENT_PRIVOXY_PORT}:${QBITTORRENT_PRIVOXY_PORT}"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - UMASK=022
+      - VPN_ENABLED=${VPN_ENABLED}
+      - VPN_FIREWALL_TYPE=legacy
+      - VPN_PROVIDER=${VPN_PROVIDER}
+      - VPN_LAN_NETWORK=${LAN_NETWORK}
+      - VPN_CONF=wg0-fix
+      - VPN_AUTO_PORT_FORWARD=${PORT_FORWARD}
+      - PRIVOXY_ENABLED=${QBITTORRENT_ENABLE_PRIVOXY}
+      - WEBUI_PORTS=${QBITTORRENT_WEBUI_PORT}/tcp,${QBITTORRENT_WEBUI_PORT}/udp
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${DOCKERCONFDIR}/qbittorrent:/config:rw
+      - ${DOCKERSTORAGEDIR}/torrents:/data/torrents:rw
