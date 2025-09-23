@@ -9,3 +9,5 @@ github_username: TDNinfra
 permalink: pretty
 
 markdown: kramdown
+url: https://tdninfra.github.io
+baseurl: /homelab-portfolio
