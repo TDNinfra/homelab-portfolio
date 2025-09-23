@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  nginx-rtmp:
+    image: alfg/nginx-rtmp:latest
+    container_name: nginx-rtmp
+    restart: unless-stopped
+    ports:
+      - "${RTMP_PORT}:1935"     # RTMP ingest
+      - "${HTTP_PORT}:8080"     # HLS/HTTP
+    volumes:
+      - ${DOCKERCONFDIR}/nginx-rtmp/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${DOCKERSTORAGEDIR}/nginx-rtmp/hls:/hls:rw
+    environment:
+      - TZ=${TZ}
+    logging:
+      driver: json-file
+      options:
+        max-file: ${DOCKERLOGGING_MAXFILE}
+        max-size: ${DOCKERLOGGING_MAXSIZE}
