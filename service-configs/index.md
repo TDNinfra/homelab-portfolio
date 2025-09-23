@@ -3,6 +3,8 @@ title: Projects
 layout: default
 ---
 
+{% include header.html %}
+
 # Projects
 
 Each project folder contains:
