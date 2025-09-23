@@ -52,3 +52,7 @@ title: IT & Homelab Projects
 
 ### Notes on Privacy
 This site omits personally identifying information (names, addresses, domains, IPs). Config snippets and screenshots should be redacted before publishing.
+### Links
+- **Repo:** https://github.com/TDNinfra/homelab-portfolio
+- **Site:** https://tdninfra.github.io/homelab-portfolio/
+
