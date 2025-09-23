@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    ports:
+      - "${HTTP_PORT}:3000"
+    volumes:
+      - ${DOCKERCONFDIR}/homepage/config:/app/config        # local config dir (must exist)
+      - /var/run/docker.sock:/var/run/docker.sock:ro        # optional: docker integrations (read-only)
+    restart: unless-stopped
