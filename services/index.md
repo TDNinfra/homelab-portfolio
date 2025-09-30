@@ -20,7 +20,7 @@ Each project folder contains:
 - [Watchtower](./watchtower/)
 - [Unpackerr](./unpackerr/)
 - [Recyclarr](./recyclarr/)
-
+- [AdGuard Home](./adguardhome/)
 ## Media Workflow
 - [Plex](./plex/)
 - [Plex Meta Manager](./plex-meta-manager/)
