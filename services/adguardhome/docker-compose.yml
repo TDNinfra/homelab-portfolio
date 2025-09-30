@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  adguardhome:
+    image: adguard/adguardhome:latest
+    container_name: adguardhome
+    restart: unless-stopped
+    ports:
+      - "${ADGUARD_DNS_PORT:-53}:53/tcp"
+      - "${ADGUARD_DNS_PORT:-53}:53/udp"
+      - "${ADGUARD_SETUP_PORT:-3000}:3000/tcp"
+      - "${ADGUARD_UI_PORT:-8081}:80/tcp"
+      - "${ADGUARD_DHCP_PORT:-67}:67/udp"
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ./config:/opt/adguardhome/conf
+      - ./work:/opt/adguardhome/work
+    security_opt:
+      - no-new-privileges:true
