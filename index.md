@@ -22,7 +22,7 @@ Hi! I’m showcasing hands-on homelab & DevOps work: Dockerized services, revers
 - Scheduled updates: **Watchtower**, post-download **Unpackerr**
 - Config drift control: **Recyclarr**
 - Homelab **Homepage** dashboard
-
+- **AdGuard Home** (DNS-level ad/tracker blocking with optional DHCP & proxy integration)
 ---
 
 ## Projects
